@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const TopicList = ({ props }) => {
+const TopicList = (props) => {
   console.log(props);
+  let topicRootPath = props.match.path.match(/[^/]+/i);
   return (
-    <div>
-      <h4>Topic List</h4>
-      <Link to={`${props.match.url}/1`}>To topic 01</Link>
-      <Link to={`${props.match.url}/2`}>To topic 02</Link>
-      <Link to={`${props.match.url}/3`}>To topic 03</Link>
+    <div className='page'>
+      <Link to='/'>Home Page</Link>
+      <h1>{`${topicRootPath} List Page`}</h1>
+      <Link to={`${props.match.url}/topic1`}>{`${topicRootPath} Topic 1`}</Link>
+      <Link to={`${props.match.url}/topic2`}>{`${topicRootPath} Topic 2`}</Link>
+      <Link to={`${props.match.url}/topic3`}>{`${topicRootPath} Topic 3`}</Link>
     </div>
   );
 };
